@@ -1,4 +1,1 @@
-deploy:
-  provider: pages:git
-  token: <encrypted token>
-  edge: true # opt in to dpl v2
+Language: node_js
