@@ -1,6 +1,7 @@
-{
-  "os": [
-    "linux"
-  ],
-  "language": "node_js"
-}
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
