@@ -1,6 +1,4 @@
-git:
-  strategy: clone
-  depth: 1
-  quiet: true
-git:
-  depth: true
+deploy:
+  provider: pages:git
+  token: <encrypted token>
+  edge: true # opt in to dpl v2
