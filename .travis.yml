@@ -1,1 +1,6 @@
-Language: node_js
+{
+  "os": [
+    "linux"
+  ],
+  "language": "node_js"
+}
