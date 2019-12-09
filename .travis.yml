@@ -3,6 +3,7 @@ node_js:
 - v4
 - v5
 - v6
+- v13.1.0.
 addons:
   apt:
     sources:
