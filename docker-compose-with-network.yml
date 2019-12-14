@@ -20,7 +20,7 @@ services:
         ipv4_address: 172.18.0.10
       
    
-  miservicio_php:
+  miservicio_apache:
     image: httpd:2.4
     volumes:
       # Montamos nuestra web desde fuera en el directorio web del contenedor

@@ -15,8 +15,11 @@ services:
       - 3306
     ports:
       - 3306:3306
+    
+    networks:
+      - default
    
-  miservicio_php:
+  miservicio_apache:
     image: httpd:2.4
     volumes:
       # Montamos nuestra web desde fuera en el directorio web del contenedor
@@ -25,12 +28,11 @@ services:
       - 80
     ports:
       - 80:80
-    links: 
-      - miservicio_mysql
+    
 
   miservico_phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
      - 8081:80
-    links: 
-      - miservicio_mysql:db
+
+   

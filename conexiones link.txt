@@ -1,0 +1,49 @@
+docker run --name test-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7
+docker run --name test-phpmyadmin -d --link test-mysql:db -p 8082:80 phpmyadmin/phpmyadmin
+
+hola santiag, buen dia.. me quedamos oin celular  porquese me daño el cargador..pero llegamos en 11:00 , ya estamos desayunando
+
+version: "3.1"
+services:
+    www:
+        build: .
+        ports: 
+            - "8081:80"
+        volumes:
+            - ./www:/var/www/html/
+        links:
+            - db
+        networks:
+            - default
+
+#######################################
+# MySQL server
+#######################################
+    db:
+        image: mysql:5.7.25
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: test_db
+            MYSQL_ROOT_PASSWORD: test
+        volumes:
+            - ./dump:/docker-entrypoint-initdb.d
+            - persistent:/var/lib/mysql
+        networks:
+            - default
+
+#######################################
+# PHP MY ADMIN
+#######################################
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - db:db
+        ports:
+            - 8080:80
+        environment:
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test
+volumes:
+    persistent:
