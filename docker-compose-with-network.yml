@@ -38,7 +38,7 @@ services:
   miservico_phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-     - 8080:80
+     - 8081:80
     links: 
       - miservicio_mysql:db
     networks:
