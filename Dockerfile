@@ -1,2 +1,8 @@
-FROM httpd:2.4
-COPY ./public-html/ /usr/local/apache2/htdocs/
+FROM ubuntu:zesty
+
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+
+COPY . .
+
+CMD ["printenv"]
